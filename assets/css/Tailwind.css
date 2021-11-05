@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.hmain {
+  @apply mt-2 text-3xl tracking-tight text-center text-green-600 sm:text-2xl;
+}
+
+.btn {
+  @apply inline-flex items-center px-6 py-3 mt-5 ml-4 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+}
+.inputfields {
+  @apply block w-full px-4 py-3 text-gray-500 border-2 border-gray-300 rounded-md shadow-lg;
+}
+
+.formFormulate {
+  @apply grid grid-cols-2 gap-6 m-6 sm:grid-cols-2 md:grid-cols-6;
+}
