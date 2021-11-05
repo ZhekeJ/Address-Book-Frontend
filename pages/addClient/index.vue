@@ -48,10 +48,25 @@ export default {
     };
   },
   methods: {
-    async addClient() {
-      const data = await this.$axios.$post("http://localhost:5000/api/clients");
+    // async addClient() {
+    //   const data = await this.$axios.$post("http://localhost:5000/api/clients");
 
-      alert("You have successfully added a client into the database");
+    //   alert("You have successfully added a client into the database");
+    // },
+    async addClient() {
+      axios
+        .post("http://localhost:5000/api/clients", {
+          name: "Fred",
+          email: "jz@gmail.com",
+          contact: "zheke",
+          company: "zheke pvt",
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
   },
 };

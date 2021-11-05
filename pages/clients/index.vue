@@ -91,16 +91,7 @@
           </table>
         </div>
         <div>
-          <td
-            class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
-          >
-            <nuxt-link
-              class="text-indigo-600 hover:text-indigo-900"
-              to="/addClient"
-            >
-              Add New Client</nuxt-link
-            >
-          </td>
+          <button class="btn" @click="addClient()">Add New Client</button>
         </div>
       </div>
     </div>
@@ -125,6 +116,23 @@ export default {
       const data = await this.$axios.$get("http://localhost:5000/api/clients");
       this.clients = data;
     },
+    async addClient() {
+      const data = await this.$axios
+        .$post("http://localhost:5000/api/clients", {
+          name: "Thomas",
+          email: "jz@example.com",
+          contact: "011 334 445",
+          company: "Coca Cola pvt",
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      alert("You have successfully added client details");
+    },
 
     async deleteClient(id) {
       const data = await this.$axios.$delete(
@@ -132,6 +140,19 @@ export default {
       );
 
       alert("You have successfully deleted the client details");
+    },
+    async updateClient(id) {
+      const data = await this.$axios.$patch(
+        "http://localhost:5000/api/clients/" + id,
+        {
+          name: "john",
+          email: "test@test.com",
+          contact: "0999252",
+          company: "Delta Beverages",
+        }
+      );
+
+      alert("You have successfully updated the client details");
     },
   },
 };
